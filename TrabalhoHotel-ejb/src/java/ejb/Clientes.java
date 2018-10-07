@@ -6,16 +6,19 @@
 package ejb;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,6 +37,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Clientes.findByTelefone", query = "SELECT c FROM Clientes c WHERE c.telefone = :telefone")
     , @NamedQuery(name = "Clientes.findByEmail", query = "SELECT c FROM Clientes c WHERE c.email = :email")})
 public class Clientes implements Serializable {
+
+    @OneToMany(mappedBy = "cpf")
+    private Collection<Estadias> estadiasCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -154,6 +160,15 @@ public class Clientes implements Serializable {
     @Override
     public String toString() {
         return "ejb.Clientes[ cpf=" + cpf + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Estadias> getEstadiasCollection() {
+        return estadiasCollection;
+    }
+
+    public void setEstadiasCollection(Collection<Estadias> estadiasCollection) {
+        this.estadiasCollection = estadiasCollection;
     }
     
 }

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listar quartos</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Lista de Quartos"/></h1>
+                <p:dataTable var="quarto" value="#{quartoManagedBean.listaQuartos}">
+                   <p:column headerText="Numero">
+                      <h:outputText value="#{quarto.numero}" /> 
+                   </p:column>
+                   <p:column headerText="Tipo">
+                      <h:outputText value="#{quarto.tipo}" /> 
+                   </p:column>
+                   <p:column headerText="Diaria">
+                      <h:outputText value="#{quarto.diaria}" /> 
+                   </p:column>
+                   <p:column headerText="Qtde camas casal">
+                      <h:outputText value="#{quarto.camacasal}" /> 
+                   </p:column>
+                   <p:column headerText="Qtde camas solteiro">
+                      <h:outputText value="#{quarto.camasolteiro}" /> 
+                   </p:column>
+                   <p:column headerText="Banheira">
+                      <h:outputText value="#{quarto.banheira}" /> 
+                   </p:column>
+                   <p:column headerText="Frigobar">
+                      <h:outputText value="#{quarto.frigobar}" />
+                   </p:column>
+                   <p:column headerText="Ar condicionado">
+                      <h:outputText value="#{quarto.ar}" />
+                   </p:column>
+                   <p:column headerText="Qtde TVs">
+                      <h:outputText value="#{quarto.tv}" />
+                   </p:column>
+                   <p:column headerText="Ações">
+                       <p:commandButton value="Remover" action="#{quartoManagedBean.removerQuarto(quarto.numero)}" />
+                       <p:commandButton value="Editar" action="editarQuarto.xhtml" />
+                   </p:column>
+                </p:dataTable>
+                <p><p:commandButton value="Inicio" id="inicio" action="index.xhtml" styleClass="ui-priority-primary" /></p>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
