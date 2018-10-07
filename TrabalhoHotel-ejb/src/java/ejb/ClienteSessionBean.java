@@ -45,4 +45,8 @@ public class ClienteSessionBean {
     public void removerCliente(Long cpf) {
         em.remove(em.find(Clientes.class, cpf));
     }
+    
+    public Clientes editarCliente(Long cpf) {
+        return em.find(Clientes.class, cpf);
+    }
 }

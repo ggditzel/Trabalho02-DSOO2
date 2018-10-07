@@ -57,4 +57,8 @@ public class ClienteManagedBean {
         clienteSessionBean.removerCliente(cpf);
         return "index";
     }
+    
+    public void editarCliente(Long cpf) {
+        clienteSessionBean.editarCliente(cpf);
+    }
 }
