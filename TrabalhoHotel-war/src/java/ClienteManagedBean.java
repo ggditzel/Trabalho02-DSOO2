@@ -47,4 +47,14 @@ public class ClienteManagedBean {
         cliente = new Clientes();
         return "index";
     }
+    
+    public String salvarCliente() {
+        clienteSessionBean.salvarCliente(this.cliente);
+        return "index";
+    }
+    
+    public String removerCliente(Long cpf) {
+        clienteSessionBean.removerCliente(cpf);
+        return "index";
+    }
 }

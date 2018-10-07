@@ -36,4 +36,13 @@ public class ClienteSessionBean {
     public void cadastrarCliente(Clientes cliente) {  // Cadastra o cliente 
         em.persist(cliente);
     }
+    
+    public void salvarCliente(Clientes cliente) {
+        em.merge(cliente);
+        em.flush();
+    }
+    
+    public void removerCliente(Long cpf) {
+        em.remove(em.find(Clientes.class, cpf));
+    }
 }
