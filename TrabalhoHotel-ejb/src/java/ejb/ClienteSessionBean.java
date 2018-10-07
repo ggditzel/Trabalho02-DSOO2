@@ -32,6 +32,8 @@ public class ClienteSessionBean {
         Query query = em.createNamedQuery("Clientes.findAll");
         return query.getResultList();
     }
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+ 
+    public void cadastrarCliente(Clientes cliente) {  // Cadastra o cliente 
+        em.persist(cliente);
+    }
 }

@@ -21,6 +21,8 @@ public class ClienteManagedBean {
 
     @EJB
     private ClienteSessionBean clienteSessionBean;
+    
+    private Clientes cliente = new Clientes();  // Guarda os dados do formulário
 
     /**
      * Creates a new instance of ClienteManagedBean
@@ -30,5 +32,19 @@ public class ClienteManagedBean {
     
     public List<Clientes> getListaClientes() {
         return clienteSessionBean.getListaClientes();
+    }
+    
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
+    public String cadastrarCliente() {          // Chama o método do bean de sessão
+        clienteSessionBean.cadastrarCliente(cliente);
+        cliente = new Clientes();
+        return "index";
     }
 }
