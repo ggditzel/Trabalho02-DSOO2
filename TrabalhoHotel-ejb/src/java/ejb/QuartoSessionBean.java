@@ -32,7 +32,7 @@ public class QuartoSessionBean {
         return query.getResultList();
     }
  
-    public void cadastrarQuarto(Quartos quarto) {  // Cadastra o cliente 
+    public void cadastrarQuarto(Quartos quarto) {  // Cadastra o quarto 
         em.persist(quarto);
     }
     

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import ejb.Clientes;
 import ejb.QuartoSessionBean;
 import ejb.Quartos;
 import java.util.List;
@@ -35,11 +34,11 @@ public class QuartoManagedBean {
         return quartoSessionBean.getListaQuartos();
     }
     
-    public Quartos getQuartos() {
+    public Quartos getQuarto() {
         return quarto;
     }
 
-    public void setQuartos(Quartos quarto) {
+    public void setQuarto(Quartos quarto) {
         this.quarto = quarto;
     }
 
