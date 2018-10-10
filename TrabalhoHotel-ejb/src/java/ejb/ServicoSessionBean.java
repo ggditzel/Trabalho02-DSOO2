@@ -34,6 +34,9 @@ public class ServicoSessionBean {
     }
    
     public int getMaxId() {  // pega o maior ID de cliente na tabela
+        if(em.createNativeQuery("SELECT * FROM SERVICOS").getResultList().isEmpty()) {
+            return 100;
+        }
         Query query = em.createNativeQuery("SELECT MAX(id) FROM SERVICOS");
         return (Integer) query.getSingleResult();
 }
